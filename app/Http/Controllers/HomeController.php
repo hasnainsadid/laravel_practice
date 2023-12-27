@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ContactModel;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +24,15 @@ class HomeController extends Controller
     
     public function store(Request $request)
     {
-        echo $request->l_name;
+        $contact = new ContactModel();
+
+        $data = [
+            'f_name'=> $request->f_name,
+            'l_name'=> $request->l_name,
+            'sub'=> $request->sub,
+            'msg'=> $request->msg,
+        ];
+
+        $contact->insert($data);
     }
 }
