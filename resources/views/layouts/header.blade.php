@@ -10,13 +10,13 @@
         <a class="nav-link active" href="/">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="about">About</a>
+        <a class="nav-link" href="/about">About</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="contact">Contact</a>
+        <a class="nav-link" href="/contact">Contact</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
+        <a class="nav-link" href="/contactlist">Contact Message</a>
       </li>
     </ul>
   </div>
