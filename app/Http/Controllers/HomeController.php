@@ -26,13 +26,29 @@ class HomeController extends Controller
     {
         $contact = new ContactModel();
 
-        $data = [
-            'f_name'=> $request->f_name,
-            'l_name'=> $request->l_name,
-            'sub'=> $request->sub,
-            'msg'=> $request->msg,
-        ];
+        $validate = $request->validate([
+            'f_name' => 'required|max:10|min:4',
+            'l_name' => 'required|max:10|min:4'
+        ]);
+
+        if ($validate) {
+            $data = [
+                'f_name'=> $request->f_name,
+                'l_name'=> $request->l_name,
+                'sub'=> $request->sub,
+                'msg'=> $request->msg,
+            ];
+        }
 
         $contact->insert($data);
+
+        return redirect('contact')->with('msg', '👉Thanks For Your Feedback.👈');
+    }
+
+    public function contactList()
+    {
+        $contacts = ContactModel::all();
+        $data['messages'] = $contacts;
+        return view('contactList', $data);
     }
 }
